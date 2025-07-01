@@ -1,115 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="icon" href="https://cetroindustrial.com/wp-content/uploads/2022/01/cropped-Logo.jpg" />
   <title>Verificação de Certificado</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Roboto + Material Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f7f9fc;
-      color: #333;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+    * {
+      box-sizing: border-box;
     }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+
     header {
       background-color: #fff;
-      padding: 20px 0;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+
+    header img {
+      height: 50px;
+    }
+
     main {
-      flex: 1;
       padding: 40px 20px;
-      max-width: 400px;
+      max-width: 500px;
       margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      margin-top: 60px;
     }
+
     h1 {
-      font-size: 1.75rem;
+      font-weight: 500;
+      font-size: 1.6rem;
       margin-bottom: 10px;
     }
-    p.subtitle {
+
+    p {
       color: #666;
-      margin-bottom: 30px;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
     }
+
     .input-group {
-      position: relative;
       margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
     }
-    input#codigo {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid #ccd0d5;
-      border-radius: 6px;
+
+    label {
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"] {
+      padding: 12px;
       font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
       outline: none;
-      transition: border-color .2s;
+      transition: border-color 0.2s ease;
     }
-    input#codigo:focus {
-      border-color: #507dda;
-      box-shadow: 0 0 0 2px rgba(80,125,218,0.2);
+
+    input[type="text"]:focus {
+      border-color: #0066cc;
     }
+
     button {
-      width: 100%;
-      padding: 14px;
-      background-color: #507dda;
-      border: none;
-      border-radius: 6px;
+      background-color: #0066cc;
       color: white;
+      border: none;
+      padding: 12px;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 500;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background-color .2s;
+      width: 100%;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
-      background-color: #406bb2;
+      background-color: #005bb5;
     }
+
     .message {
       margin-top: 20px;
-      padding: 16px;
-      border-radius: 6px;
+      padding: 12px;
+      border-radius: 5px;
       font-size: 0.95rem;
     }
-    .message.error {
-      background-color: #ffe8e8;
-      color: #b32929;
-    }
-    .message.success {
+
+    .success {
       background-color: #e6f4ea;
-      color: #166534;
+      color: #1b5e20;
     }
+
+    .error {
+      background-color: #fdecea;
+      color: #b71c1c;
+    }
+
     footer {
-      background-color: #fff;
-      padding: 20px;
+      margin-top: 60px;
+      padding: 16px;
       text-align: center;
+      color: #999;
       font-size: 0.85rem;
-      color: #888;
-      border-top: 1px solid #e1e4e8;
     }
-    footer a {
-      color: #507dda;
+
+    a {
+      color: #0066cc;
       text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Verifique seu Certificado</h1>
+    <img src="https://cetroindustrial.com/wp-content/uploads/2022/01/cropped-Logo.jpg" alt="Logo Cetro" />
+    <span class="material-icons-outlined" style="color:#666;">verified</span>
   </header>
+
   <main>
-    <p class="subtitle">Digite abaixo o código de segurança para validar e baixar o certificado.</p>
+    <h1>Validação de Certificado</h1>
+    <p>Insira o código de verificação para consultar o certificado digital.</p>
+
     <div class="input-group">
-      <input id="codigo" type="text" placeholder="Ex: ABC123XYZ">
+      <label for="codigo">Código de Verificação</label>
+      <input type="text" id="codigo" placeholder="Ex: ABC123XYZ">
     </div>
-    <button onclick="verificarCodigo()">Verificar</button>
+    <button onclick="verificarCodigo()">
+      <span class="material-icons-outlined" style="vertical-align: middle; margin-right: 6px;">search</span>
+      Verificar
+    </button>
+
     <div id="resultado"></div>
   </main>
+
   <footer>
-    Desenvolvido por Você. <a href="#">Ajuda</a>
+    © 2025 Cetro Certificados. Todos os direitos reservados.
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
